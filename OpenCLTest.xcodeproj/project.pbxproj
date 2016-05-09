@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4F04D1A21CDE7353002109CF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F04D1A11CDE7353002109CF /* main.cpp */; };
+		4F04D1A91CDE73BA002109CF /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F04D1A81CDE73BA002109CF /* OpenCL.framework */; };
+		4F04D1AC1CDE785F002109CF /* kernel.cl in Sources */ = {isa = PBXBuildFile; fileRef = 4F04D1AA1CDE785F002109CF /* kernel.cl */; };
+		4F04D1AF1CDF3335002109CF /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F04D1AD1CDF3335002109CF /* Helpers.cpp */; };
+		4F04D1B21CDF3355002109CF /* Net.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F04D1B01CDF3355002109CF /* Net.cpp */; };
+		4F04D1B51CDF63FB002109CF /* Pin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F04D1B31CDF63FB002109CF /* Pin.cpp */; };
+		4F04D1B81CDF6429002109CF /* ChannelData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F04D1B61CDF6429002109CF /* ChannelData.cpp */; };
+		4F04D1BB1CDF6470002109CF /* Fish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F04D1B91CDF6470002109CF /* Fish.cpp */; };
+		4F04D1BE1CE0BE50002109CF /* FSSAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F04D1BC1CE0BE50002109CF /* FSSAlgorithm.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +33,20 @@
 /* Begin PBXFileReference section */
 		4F04D19E1CDE7353002109CF /* OpenCLTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenCLTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F04D1A11CDE7353002109CF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4F04D1A81CDE73BA002109CF /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		4F04D1AA1CDE785F002109CF /* kernel.cl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.opencl; path = kernel.cl; sourceTree = "<group>"; };
+		4F04D1AD1CDF3335002109CF /* Helpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Helpers.cpp; sourceTree = "<group>"; };
+		4F04D1AE1CDF3335002109CF /* Helpers.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Helpers.hpp; sourceTree = "<group>"; };
+		4F04D1B01CDF3355002109CF /* Net.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Net.cpp; sourceTree = "<group>"; };
+		4F04D1B11CDF3355002109CF /* Net.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Net.hpp; sourceTree = "<group>"; };
+		4F04D1B31CDF63FB002109CF /* Pin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pin.cpp; sourceTree = "<group>"; };
+		4F04D1B41CDF63FB002109CF /* Pin.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Pin.hpp; sourceTree = "<group>"; };
+		4F04D1B61CDF6429002109CF /* ChannelData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChannelData.cpp; sourceTree = "<group>"; };
+		4F04D1B71CDF6429002109CF /* ChannelData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ChannelData.hpp; sourceTree = "<group>"; };
+		4F04D1B91CDF6470002109CF /* Fish.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fish.cpp; sourceTree = "<group>"; };
+		4F04D1BA1CDF6470002109CF /* Fish.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fish.hpp; sourceTree = "<group>"; };
+		4F04D1BC1CE0BE50002109CF /* FSSAlgorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FSSAlgorithm.cpp; sourceTree = "<group>"; };
+		4F04D1BD1CE0BE50002109CF /* FSSAlgorithm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FSSAlgorithm.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F04D1A91CDE73BA002109CF /* OpenCL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +64,7 @@
 		4F04D1951CDE7353002109CF = {
 			isa = PBXGroup;
 			children = (
+				4F04D1A81CDE73BA002109CF /* OpenCL.framework */,
 				4F04D1A01CDE7353002109CF /* OpenCLTest */,
 				4F04D19F1CDE7353002109CF /* Products */,
 			);
@@ -58,6 +82,19 @@
 			isa = PBXGroup;
 			children = (
 				4F04D1A11CDE7353002109CF /* main.cpp */,
+				4F04D1AA1CDE785F002109CF /* kernel.cl */,
+				4F04D1AD1CDF3335002109CF /* Helpers.cpp */,
+				4F04D1AE1CDF3335002109CF /* Helpers.hpp */,
+				4F04D1B01CDF3355002109CF /* Net.cpp */,
+				4F04D1B11CDF3355002109CF /* Net.hpp */,
+				4F04D1B31CDF63FB002109CF /* Pin.cpp */,
+				4F04D1B41CDF63FB002109CF /* Pin.hpp */,
+				4F04D1B61CDF6429002109CF /* ChannelData.cpp */,
+				4F04D1B71CDF6429002109CF /* ChannelData.hpp */,
+				4F04D1B91CDF6470002109CF /* Fish.cpp */,
+				4F04D1BA1CDF6470002109CF /* Fish.hpp */,
+				4F04D1BC1CE0BE50002109CF /* FSSAlgorithm.cpp */,
+				4F04D1BD1CE0BE50002109CF /* FSSAlgorithm.hpp */,
 			);
 			path = OpenCLTest;
 			sourceTree = "<group>";
@@ -118,7 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F04D1B51CDF63FB002109CF /* Pin.cpp in Sources */,
+				4F04D1AF1CDF3335002109CF /* Helpers.cpp in Sources */,
+				4F04D1AC1CDE785F002109CF /* kernel.cl in Sources */,
 				4F04D1A21CDE7353002109CF /* main.cpp in Sources */,
+				4F04D1BE1CE0BE50002109CF /* FSSAlgorithm.cpp in Sources */,
+				4F04D1BB1CDF6470002109CF /* Fish.cpp in Sources */,
+				4F04D1B21CDF3355002109CF /* Net.cpp in Sources */,
+				4F04D1B81CDF6429002109CF /* ChannelData.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +283,7 @@
 				4F04D1A71CDE7353002109CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
