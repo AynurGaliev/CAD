@@ -33,8 +33,6 @@ struct Fish {
     ChannelData* data;
     double individualStep;
     double collStep;
-    double currentSumWeight;
-    double prevSumWeight;
     List<List<int>> decision;
     double weight;
     double prevFitnessValue;
@@ -44,11 +42,15 @@ struct Fish {
          int iterationCount,
          double weight,
          double individualStep,
-         double collStep){
-        this->data = data;
-        this->weight = weight;
-        this->collStep = collStep;
-        this->individualStep = individualStep;
+         double collStep);
+    
+    void description() {
+        this->data->description();
+        printf("Individual Step - %f\n", individualStep);
+        printf("Coll Step - %f\n", collStep);
+        printf("Weight - %f\n", weight);
+        printf("Previous Fitness Value - %f\n", prevFitnessValue);
+        printf("Fitness Value - %f\n", fitnessValue);
     }
     
     bool operator>(const Fish& rhs) {

@@ -82,6 +82,16 @@ struct List {
         return List<T>(tempArray, count);
     }
     
+    void sort(function<bool (T, T)> func) {
+        for(int i=0; i<count; i++) {
+            for(int j=i+1; j<count; j++) {
+                if(func(array[i], array[j])) {
+                    swap(i, j);
+                }
+            }
+        }
+    }
+    
     void forEach(function<void (T)> func) {
         for(int i=0; i<count; i++) {
             func(array[i]);
@@ -159,11 +169,17 @@ struct List {
         count = 0;
         array = NULL;
     }
+    
+    List(int capacity) {
+        count = capacity;
+        array = new T[capacity];
+    }
 };
 
 List<Net*>* prepareNets(int* top, int* bottom, int count, int maxNumber);
 List<List<int>> alloc(int size);
 Net* netForPin(int pin, List<Net*> nets);
 bool isCovered(Net* net1, Net* net2);
+void printGraph(List<List<int>> &graph);
 
 #endif /* Helpers_hpp */

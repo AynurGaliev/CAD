@@ -21,9 +21,9 @@ struct ChannelData {
     List<List<int>> VCG;
     List<List<int>> EVCG;
     
-    List<List<int>> setupEVCG(List<Net*> nets);
-    List<List<int>> setupVCG(int count);
-    bool checkWay(int start, int end, List<List<int>> graph, int count);
+    void setupEVCG(List<Net*> nets);
+    void setupVCG(int count);
+    bool checkWay(int start, int end, List<List<int>> &graph, int count);
     
     ChannelData(List<Net*> nets, List<Pin*> topPins, List<Pin*> bottomPins);
     ChannelData(int top[], int bottom[], int count, int maxNumber);

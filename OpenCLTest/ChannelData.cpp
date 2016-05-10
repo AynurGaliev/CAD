@@ -7,10 +7,11 @@
 //
 
 #include "ChannelData.hpp"
+#include <queue>
 
-List<List<int>> ChannelData::setupEVCG(List<Net*> nets) {
+void ChannelData::setupEVCG(List<Net*> nets) {
     if (nets.count == 0) {
-        return List<List<int>>();
+        return;
     }
     int netsCount = this->nets.count;
     this->EVCG = alloc(netsCount);
@@ -18,22 +19,24 @@ List<List<int>> ChannelData::setupEVCG(List<Net*> nets) {
     for(int i=0; i<netsCount; i++) {
         for(int j=0; j<netsCount; j++) {
             if (i!=j) {
-                if (checkWay(j, i, VCG, netsCount) == true) {
+                if (checkWay(j, i, this->VCG, netsCount) == true) {
                     EVCG[j][i] = 1;
                 } else {
                     EVCG[j][i] = -1;
                 }
+            } else {
+                EVCG[i][j]=0;
             }
         }
     }
-    return EVCG;
+    return;
 }
 
 ChannelData::ChannelData(List<Net*> nets, List<Pin*> topPins, List<Pin*> bottomPins) {
     this->nets = nets;
     this->topPins = topPins;
     this->bottomPins = bottomPins;
-    this->EVCG = setupEVCG(this->nets);
+    setupEVCG(this->nets);
 }
 
 ChannelData::ChannelData(int top[], int bottom[], int count, int maxNumber) {
@@ -54,9 +57,18 @@ ChannelData::ChannelData(int top[], int bottom[], int count, int maxNumber) {
             }
         }
     }
+    this->topPins.sort([](Pin* pin1, Pin* pin2) {
+        return pin1->xPosition > pin2->xPosition;
+    });
+    this->bottomPins.sort([](Pin* pin1, Pin* pin2) {
+        return pin1->xPosition > pin2->xPosition;
+    });
+    this->pinCount = count;
+    this->setupVCG(this->nets.count);
+    this->setupEVCG(this->nets);
 }
 
-List<List<int>> ChannelData::setupVCG(int count) {
+void ChannelData::setupVCG(int count) {
     this->VCG = alloc(count);
     for (int i=0; i<count; i++) {
         for (int j=0; j<count; j++) {
@@ -68,27 +80,27 @@ List<List<int>> ChannelData::setupVCG(int count) {
             this->VCG[topPins[i]->number - 1][bottomPins[i]->number - 1] = 1;
         }
     }
-    return this->VCG;
+    return;
 }
 
 
-bool ChannelData::checkWay(int start, int end, List<List<int>> graph, int count) {
+bool ChannelData::checkWay(int start, int end, List<List<int>> &graph, int count) {
     
     bool* flags = new bool[count];
-    
-    int* queue = new int[count];
-    int pointer = -1;
-    queue[++pointer] = start;
+    queue<int> *q = new queue<int>();
+    q->push(start);
     flags[start] = true;
     
-    while(pointer !=-1) {
-        int node = queue[pointer--];
+    while(q->size() != 0) {
+        int node = q->front();
+        q->pop();
         for(int i=0; i<count; i++) {
             if (graph[node][i] == 1 && !flags[i]) {
-                queue[pointer++] = i;
+                q->push(i);
                 flags[i] = true;
             }
         }
     }
+    delete q;
     return flags[end];
 }

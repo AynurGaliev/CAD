@@ -18,10 +18,9 @@
 //}
 
 List<List<int>> alloc(int size) {
-    List<List<int>> list = List<List<int>>();
+    List<List<int>> list = List<List<int>>(size);
     for (int i=0; i<size; i++) {
-        List<int> tempList = List<int>();
-        list.append(tempList);
+        list[i] = List<int>(size);
     }
     return list;
 }
@@ -64,4 +63,13 @@ List<Net*>* prepareNets(int top[], int bottom[], int count, int maxNumber) {
         nets->append(net);
     }
     return nets;
+}
+
+void printGraph(List<List<int>> &graph) {
+    for(int i=0; i<graph.count; i++) {
+        for(int j=0; j<graph[i].count; j++) {
+            printf("%*d", 3, graph[i][j]);
+        }
+        printf("\n");
+    }
 }

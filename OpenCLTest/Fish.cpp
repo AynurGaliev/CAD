@@ -27,6 +27,18 @@ int arraySize(int *array) {
     return sizeof(array)/sizeof(int);
 }
 
+Fish::Fish(ChannelData* data,
+     int iterationCount,
+     double weight,
+     double individualStep,
+     double collStep){
+    this->data = data;
+    this->weight = weight;
+    this->collStep = collStep;
+    this->individualStep = individualStep;
+    this->formDecisionMatrix();
+}
+
 double Fish::calculateFitnessValue(List<List<int>> decision) {
     
     int netsCount = this->data->nets.count;
@@ -92,7 +104,7 @@ void Fish::formDecisionMatrix() {
     List<List<int>> tempEVCG = alloc(netsCount);
     memcpy(&tempEVCG, &this->data->EVCG, sizeof(this->data->EVCG));
     
-    int* pinNumbers = new int[netsCount];
+    List<int> pinNumbers = List<int>(netsCount);
     for(int i=0; i<netsCount; i++) {
         pinNumbers[i] = i+1;
     }

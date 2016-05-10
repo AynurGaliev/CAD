@@ -54,10 +54,10 @@ struct FSSAlgorithm {
                 maxNumber = bottom[i];
             }
         }
-        ChannelData data = ChannelData(top, bottom, count, maxNumber);
+        this->data = new ChannelData(top, bottom, count, maxNumber);
         for(int i=0; i<populationSize; i++) {
-            Fish fish = Fish(&data, iterationsCount, maxWeight/2.0, individualStepStart, collStep);
-            fishes.append(&fish);
+            Fish* fish = new Fish(data, iterationsCount, maxWeight/2.0, individualStepStart, collStep);
+            fishes.append(fish);
         }
     }
     
